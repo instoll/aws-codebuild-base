@@ -98,7 +98,8 @@ COPY dockerd-entrypoint.sh /usr/local/bin/
 
 COPY requirements.txt /
 
-RUN echo "Install pip and ansible" \
+RUN apt-get update \
+    && echo "Install pip and ansible" \
     && apt-get install -y python-setuptools python-pip \
     && pip install --upgrade pip \
     && pip install -r /requirements.txt \
